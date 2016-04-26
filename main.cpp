@@ -19,12 +19,11 @@ using namespace std;
 /* define the constant number of rounds */
 
 #define ROUNDS 6
-#define DEBUG
+//#define DEBUG
 
 typedef unsigned char uchar;
 
-void generate_S_boxes(short *S, short *S_inv)
-{
+void generate_S_boxes(short *S, short *S_inv) {
 	short g = 45, i, j, t;
 
 	S[0] = 1, S_inv[1] = 0;
@@ -44,8 +43,7 @@ void generate_S_boxes(short *S, short *S_inv)
 }
 
 void SAFER_K_64_key_schedule(short *key, short *S,
-							 short *S_inv, uchar **K)
-{
+							 short *S_inv, uchar **K) {
 	uchar B[2 * ROUNDS + 3][9], R[9], i, i2, j, t;
 
 	generate_S_boxes(S, S_inv);
@@ -53,7 +51,7 @@ void SAFER_K_64_key_schedule(short *key, short *S,
 		for (j = 1; j <= 8; j++)
 			B[i][j] = (uchar) S[S[9 * i + j]];
 	for (i = 0; i < 4; i++) {
-		i2= (uchar) (2 * i);
+		i2 = (uchar) (2 * i);
 		R[i2 + 1] = (uchar) (key[i] >> 8);
 		R[i2 + 2] = (uchar) (key[i] & 255);
 	}
@@ -70,7 +68,7 @@ void SAFER_K_64_key_schedule(short *key, short *S,
 #endif
 	for (i = 1; i <= 8; i++) K[1][i] = R[i];
 	for (i = 2; i <= 2 * ROUNDS + 1; i++) {
-		for (j = 1; j <= 8; j ++) {
+		for (j = 1; j <= 8; j++) {
 			t = R[j];
 			R[j] = (uchar) ((t << 3) | (t >> 5));
 		}
@@ -79,8 +77,7 @@ void SAFER_K_64_key_schedule(short *key, short *S,
 	}
 }
 
-void f(uchar x, uchar y, uchar *X, uchar *Y)
-{
+void f(uchar x, uchar y, uchar *X, uchar *Y) {
 	int a = (2 * x + y) % 256;
 	int b = (x + y) % 256;
 
@@ -89,8 +86,7 @@ void f(uchar x, uchar y, uchar *X, uchar *Y)
 
 void SAFER_K_64_encryption(uchar *X, uchar *Y,
 						   short *S, short *S_inv,
-						   uchar **K)
-{
+						   uchar **K) {
 	uchar i, j;
 
 	for (i = 1; i <= ROUNDS; i++) {
@@ -146,8 +142,7 @@ void SAFER_K_64_encryption(uchar *X, uchar *Y,
 	Y[7] = (uchar) ((X[7] + K[i][7]) % 256);
 }
 
-void f_inv(uchar L, uchar R, uchar *l, uchar *r)
-{
+void f_inv(uchar L, uchar R, uchar *l, uchar *r) {
 	int a = (L - R) % 256;
 	int b = (2 * R - L) % 256;
 
@@ -156,8 +151,7 @@ void f_inv(uchar L, uchar R, uchar *l, uchar *r)
 
 void SAFER_K_64_decryption(uchar *X, uchar *Y,
 						   short *S, short *S_inv,
-						   uchar **K)
-{
+						   uchar **K) {
 	uchar i, j;
 
 	i = 2 * ROUNDS + 1;
@@ -215,19 +209,21 @@ void SAFER_K_64_decryption(uchar *X, uchar *Y,
 	for (i = 1; i <= 8; i++) Y[i] = X[i];
 }
 
-int main(void)
-{
+int main(void) {
 	short key[4], S[512], S_inv[512];
 	uchar X[9] = {'a', 0, 0, 0, 'a', 'a', 0, 0, 'a'}, Y[9];
 	uchar i, **K;
 
-
-
-	K = (uchar**)calloc(2 * ROUNDS + 3, sizeof(char *));
-	for (i = 0; i < 2 * ROUNDS + 3; i++) {
-		K[i] = (uchar*)calloc(9, sizeof(char));
+	printf("Text k zašifrování: \n");
+	for (i = 1; i <= 8; i++) {
+		printf("%3d ", X[i]);
 	}
+	printf("\n");
 
+	K = (uchar **) calloc(2 * ROUNDS + 3, sizeof(char *));
+	for (i = 0; i < 2 * ROUNDS + 3; i++) {
+		K[i] = (uchar *) calloc(9, sizeof(char));
+	}
 
 	key[0] = 256 * 8 + 7;
 	key[1] = 256 * 6 + 5;
@@ -235,9 +231,12 @@ int main(void)
 	key[3] = 256 * 2 + 1;
 	SAFER_K_64_key_schedule(key, S, S_inv, K);
 	SAFER_K_64_encryption(X, Y, S, S_inv, K);
+
+
 	printf("Výsledek šifrování: \n");
-	for (i = 1; i <= 8; i++)
+	for (i = 1; i <= 8; i++) {
 		printf("%3d ", Y[i]);
+	}
 	printf("\n");
 	SAFER_K_64_decryption(Y, X, S, S_inv, K);
 	printf("Výsledek dešifrování: \n");
