@@ -143,16 +143,12 @@ Pro \emph{j} = 2,3,6,7: $Y_{j}$ $\leftarrow$ $X_{j}$ $\boxplus$ $K_{2r+1}$|j|
 
 \subsection{Dešifrování}
 Proces dešifrování používá pro zadaný klíč K stejné hledání podklíčů, jako při šifrování. Proces začíná s se vstupní transformací s klíčem $K_{2r+1}$ k výstupní transformaci. Veškeré modulární součty jsou nahrazeny modulárním odečítáním.
-Funkce \emph{f} v lineárních vrstvách jsou nahrazeny jejich inverzními funkcemi: 
+Funkce \emph{f} v lineárních vrstvách jsou nahrazeny jejich inverzními funkcemi: $\emph{f}_{inv}$(L,R) = (L - R, 2R - L) s odečítáním mod 256 v tříkrokových sekvencích.
 
-\lstset{language=text} %funguje globálně, stačí nastavit jednou
-\begin{lstlisting}[frame=single]
-def test():
-	a = 1
-	b = 2
-	return a + b
-\end{lstlisting}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+
+{\section{Popis implementace}}
+
 
 {\section{Závěr}}
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.

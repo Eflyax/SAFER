@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.22)  30 APR 2016 19:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.22)  30 APR 2016 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,67 +596,33 @@ Package pdftex.def Info: img/saferschema.png used on input line 122.
 (pdftex.def)             Requested size: 341.43306pt x 363.028pt.
  [4
 
-] [5 <./img/saferschema.png>]
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2013/08/26 1.5b listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2013/08/26 1.5b listings language file
-)
+] [5 <./img/saferschema.png>] [6] [7
 
-! Package Listings Error: Couldn't load requested language.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.148 \lstset{language=text}
-                             %funguje globálně, stačí nastavit jednou
-The following languages weren't loadable:
-    ,text$
-This may cause errors in the sequel.
-
-
-! Package Listings Error: language text undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.148 \lstset{language=text}
-                             %funguje globálně, stačí nastavit jednou
-The language is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6] [7
-
-] (./template.aux) ) 
+]
+(./template.aux) ) 
 Here is how much of TeX's memory you used:
- 5854 strings out of 493304
- 76101 string characters out of 6139871
- 168618 words of memory out of 5000000
- 9188 multiletter control sequences out of 15000+600000
- 17944 words of font info for 45 fonts, out of 8000000 for 9000
+ 5495 strings out of 493304
+ 72349 string characters out of 6139871
+ 149635 words of memory out of 5000000
+ 8835 multiletter control sequences out of 15000+600000
+ 20847 words of font info for 49 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,41p,412b,1000s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sfti1200.pfb>
-Output written on template.pdf (7 pages, 312270 bytes).
+ 38i,6n,32p,412b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfti1200.pfb>
+Output written on template.pdf (7 pages, 311644 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream

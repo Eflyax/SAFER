@@ -1,8 +1,9 @@
 //
 // Created by eflyax on 27.4.16.
 //
+#include <printf.h>
 #include "core.h"
-
+#include <stdio.h>
 
 void generate_S_boxes(short *S, short *S_inv) {
 	short g = 45, i, j, t;
@@ -31,7 +32,8 @@ void SAFER_K_64_key_schedule(short *key, short *S, short *S_inv, uchar **K) {
 	}
 
 	for (i = 1; i <= 8; i++) {
-		K[1][i] = R[i];
+		//K[1][i] = R[i];
+		K[1][i] = Y[i];
 	}
 
 	for (i = 2; i <= 2 * ROUNDS + 1; i++) {

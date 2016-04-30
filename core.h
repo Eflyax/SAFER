@@ -9,6 +9,15 @@
 
 typedef unsigned char uchar;
 
+
+short key[4], S[512], S_inv[512];
+
+uchar **K;
+
+uchar X[9],Y[9];
+
+uchar i ;
+
 void SAFER_K_64_key_schedule(short *key, short *S, short *S_inv, uchar **K);
 
 void SAFER_K_64_encryption(uchar *X, uchar *Y, short *S, short *S_inv, uchar **K);
