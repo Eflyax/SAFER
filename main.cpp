@@ -23,7 +23,7 @@ using namespace std;
 //#define DEBUG
 typedef unsigned char uchar;
 
-uchar X[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+uchar X[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 uchar Y[9];
 uchar i, **K;
 
@@ -38,13 +38,6 @@ void generate_S_boxes(short *S, short *S_inv) {
 		S_inv[t] = (uchar) i;
 	}
 	S[128] = 0, S_inv[0] = 128;
-#ifdef DEBUG
-	for (i = 0; i < 16; i++) {
-		for (j = 0; j < 16; j++)
-			printf("%3d ", S[i * 16 + j]);
-		printf("\n");
-	}
-#endif
 }
 
 void SAFER_K_64_key_schedule(short *key, short *S, short *S_inv, uchar **K) {
@@ -59,12 +52,14 @@ void SAFER_K_64_key_schedule(short *key, short *S, short *S_inv, uchar **K) {
 		R[i2 + 1] = (uchar) (key[i] >> 8);
 		R[i2 + 2] = (uchar) (key[i] & 255);
 	}
-
-	/*for (i = 1; i <= 8; i++) {
+/*
+	for(i = 1; i <= 8;i++ ){
 		//K[1][i] = R[i];
-		printf("%3d_", K[1][i]);
-	}*/
 
+		printf("%d:", K[1][i]);
+		//K[1][i] = Y[i];
+	}
+*/
 	for (i = 2; i <= 2 * ROUNDS + 1; i++) {
 		for (j = 1; j <= 8; j++) {
 			t = R[j];
@@ -206,8 +201,17 @@ void SAFER_K_64_decryption(uchar *X, uchar *Y, short *S, short *S_inv, uchar **K
 int check_user_inputs(char *user_text, char *user_key) {
 
 	if (strlen(user_text) > 8) {
-		printf("Šifrovaný text může mít maximálně 8 znaků");
-		exit(1);
+		// byl zrejme zadan sifrovany text
+		char *ch;
+		printf("Split \"%s\"\n", user_text);
+		ch = strtok(user_text, "-");
+		int i =0;
+		while (ch != NULL) {
+			int act_val = atoi(ch);
+			X[i + 1] = act_val;
+			ch = strtok(NULL, "-");
+			i++;
+		}
 	} else {
 		int x;
 		for (x = 0; x < strlen(user_text); x++) {
@@ -217,10 +221,10 @@ int check_user_inputs(char *user_text, char *user_key) {
 	if (strlen(user_key) > 8) {
 		printf("Heslo může mít maximálně 8 znaků");
 		exit(1);
-	}else{
+	} else {
 		int x;
 		for (x = 0; x < strlen(user_key); x++) {
-			K[1][x+1] = (user_key[x] - 48);
+			K[1][x + 1] = (user_key[x] - 48);
 		}
 	}
 
@@ -249,22 +253,23 @@ int main(int argc, char *argv[]) {
 			check_user_inputs(argv[2], argv[3]);
 			SAFER_K_64_key_schedule(key, S, S_inv, K);
 			SAFER_K_64_encryption(X, Y, S, S_inv, K);
+
+			printf("Výsledek šifrování: \n");
+			for (i = 1; i <= 8; i++) {
+				printf("%d-", Y[i]);
+			}
+
 		} else {
 			printf("decryption\n");
 			check_user_inputs(argv[2], argv[3]);
 			SAFER_K_64_key_schedule(key, S, S_inv, K);
 			SAFER_K_64_decryption(X, Y, S, S_inv, K);
+
+			printf("Výsledek dešifrování: \n");
+			for (i = 1; i <= 8; i++) {
+				printf("%3d ", Y[i]);
+			}
 		}
-
-		//SAFER_K_64_encryption(X, Y, S, S_inv, K);
-
-		printf("Výsledek: \n");
-		for (i = 1; i <= 8; i++) {
-			printf("%3d ", Y[i]);
-		}
-
-		//SAFER_K_64_decryption(Y, X, S, S_inv, K);
-
 
 	}
 	for (i = 0; i < 2 * ROUNDS + 3; i++) {
