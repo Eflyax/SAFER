@@ -1,0 +1,7 @@
+\select@language {czech}
+\contentsline {section}{\numberline {1}O \IeC {\v s}if\IeC {\v r}e SAFER}{3}
+\contentsline {section}{\numberline {2}Popis algoritm\IeC {\r u}}{4}
+\contentsline {subsection}{\numberline {2.1}\IeC {\v S}ifrov\IeC {\'a}n\IeC {\'\i }}{4}
+\contentsline {subsection}{\numberline {2.2}Produkce podkl\IeC {\'\i }\IeC {\v c}\IeC {\r u}}{6}
+\contentsline {subsection}{\numberline {2.3}De\IeC {\v s}ifrov\IeC {\'a}n\IeC {\'\i }}{6}
+\contentsline {section}{\numberline {3}Z\IeC {\'a}v\IeC {\v e}r}{7}
