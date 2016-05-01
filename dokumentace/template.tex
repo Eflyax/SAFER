@@ -119,7 +119,7 @@ Pro \emph{j} = 2,3,6,7: $Y_{j}$ $\leftarrow$ $X_{j}$ $\boxplus$ $K_{2r+1}$|j|
 
 \begin{figure}
     \center
-    \includegraphics[width=120mm]{img/saferschema.png}
+    \includegraphics[width=165mm]{img/saferschema.png}
     \caption{Schéma šifrování}
 \end{figure}
 
@@ -147,12 +147,81 @@ Funkce \emph{f} v lineárních vrstvách jsou nahrazeny jejich inverzními funkc
 
 
 
-{\section{Popis implementace}}
+{\section{Dokumentace}}
 
 
+{\subsection{Programátorská dokumentace}}
+\begin{itemize}
+
+
+\item \textbf{void SAFER$\_$K$\_$64$\_$encryption( . . . )} \\
+Provádí šifrování vstupního textu se zadaným klíčem. 
+
+
+\item \textbf{void SAFER$\_$K$\_$64$\_$key$\_$schedule( . . .)} \\
+Provádí rozklad klíče na podklíče, které se používají pro šifrování/dešifrování.
+
+
+\item \textbf{void generate$\_$S$\_$boxes( . . . )}
+Generuje tabulky konstant, které se používají při rozkladu klíče na podklíče. Funkce přijme v parametru tabulky (pole) \emph{S} a \emph{S$\_$} s velikostí 512. 
+Dle dokumentace šifry se aplikuje následující algoritmus, pro naplnění tabulek:
+\lstset{language=C} %funguje globálně, stačí nastavit jednou
+\begin{lstlisting}[frame=single]
+	short g = 45, i, t;
+	S[0] = 1, S_inv[1] = 0;
+	for (i = 1; i <= 255; i++) {
+		t = (short) ((g * S[i - 1]) % 257);
+		S[i] = t;
+		S_inv[t] = (uchar) i;
+	}
+	S[128] = 0, S_inv[0] = 128;
+\end{lstlisting}
+Obě tabulky ($S-Boxy$) jsou vůči sobě inverzní. Obecně platí, že v tabulce \emph{S} na indexu $\textbf{X}$ s hodnotou $\textbf{Y}$, je v tabulce \emph{S$\_$inv }na indexu $\textbf{Y}$ hodnota $\textbf{X}$. 
+
+\item \textbf{void f(uchar x, uchar y, uchar *X, uchar *Y)}\\
+Jedná se o implementaci lineární transformace, použitou ve 3 vrstvě šifrovacího algoritmu. Tato funkce je také známá jako pseudo-Hadamardova transformace.
+
+\item \textbf{void f$\_$inv(uchar L, uchar R, uchar *l, uchar *r)} \\
+Jedná se o inverzní funkci k funkci \textit{f}. Tato inverzní transformace je využívána při dešifrování.
+
+\item \textbf{void SAFER$\_$K$\_$64$\_$decryption( . . . )}\\
+Provádí deširování dle zadaného vstupu a klíče.
+
+\item \textbf{int check$\_$user$\_$inputs( . . . )} \\
+Validuje vstupy zadané od uživatele (vstupní text a šifrovací/dešifrovací klíč).
+
+\item \textbf{int main(int argc, char *argv[]) }
+Hlavní procedura programu. Volá podprogram pro validaci vstupů, dle zadaných vstupů provede šifrování/dešifrování. Veškeré výstupy programu se vypisují do konzole.
+
+\end{itemize}
+
+{\subsection{Uživatelská dokumentace}}
+
+Program jsem vytvořil v jazyce C, je spustitelný pod operačními systémy Windows a Linux. Program se spouští s 3 parametry:
+\lstset{language=C} 
+\begin{lstlisting}[frame=single]
+ ./safer <akce> <text> <klic>
+\end{lstlisting}
+\textbf{akce:} hodnoty (e/d), e = šifrování, d = dešifrování\\
+\textbf{text:} text, který bude program šifrovat/dešifrovat\\
+\textbf{klic:} klíč, který se použije k šifrování/dešifrování\\
+
+Například pro zašifrování slovo \emph{kočka} s heslem \emph{123456} použijete:
+\begin{center}
+ ./safer e kočka 123456
+\end{center}
+
+{\section{Použitá literatura a zdroje}}
+\begin{itemize}
+
+\item Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone. Handbook of Applied Cryptography. vyd: CRC Press, 1996. 755 s. ISBN 0-8493-8523-7.
+
+\item In: Wikipedia: the free encyclopedia [online]. St. Petersburg (Florida): Wikipedia Foundation, 11. 12. 2006, last modified on 12.12 2015 [cit. 20.4 2016]. \\Dostupné z: https://en.wikipedia.org/wiki/SAFER
+
+
+\end{itemize}
 {\section{Závěr}}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Podařilo se mi úspěšně implementovat šifru SAFER K64, schopnou šifrovat a dešifrovat zadané vstupy. Při implementaci a studování algoritmů jsem využil vědomosti z přednášek, které mi při vývoji velmi pomohly. Práci jsem vytvářel na operačním systému Ubuntu 14.04. Nastudování potřebných materiálů, implementace a napsaní dokumentace mi zabralo zhruba 55 hodin.
 
-%------------------------------------------
 
 \end{document}
