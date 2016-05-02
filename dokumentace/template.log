@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.22)  1 MAY 2016 15:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.22)  2 MAY 2016 18:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -437,34 +437,56 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-(./template.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen132
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen133
+\extrarowheight=\dimen134
+\NC@list=\toks25
+\extratabsurround=\skip48
+\backup@length=\skip49
+)
+\TX@col@width=\dimen135
+\TX@old@table=\dimen136
+\TX@old@col=\dimen137
+\TX@target=\dimen138
+\TX@delta=\dimen139
+\TX@cols=\count113
+\TX@ftn=\toks26
+) (./template.aux)
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count113
-\scratchdimen=\dimen132
+\scratchcounter=\count114
+\scratchdimen=\dimen140
 \scratchbox=\box31
-\nofMPsegments=\count114
-\nofMParguments=\count115
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count116
-\MPscratchDim=\dimen133
-\MPnumerator=\count117
-\makeMPintoPDFobject=\count118
-\everyMPtoPDFconversion=\toks26
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen141
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -543,21 +565,21 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count119
+\c@lstlisting=\count120
 <img/FAV.jpg, id=1, 823.075pt x 446.66875pt>
 File: img/FAV.jpg Graphic file (type jpg)
  <use img/FAV.jpg>
-Package pdftex.def Info: img/FAV.jpg used on input line 42.
+Package pdftex.def Info: img/FAV.jpg used on input line 43.
 (pdftex.def)             Requested size: 142.26378pt x 77.20038pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--49
+Underfull \hbox (badness 10000) in paragraph at lines 43--50
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/FAV.jpg>]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 69.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -580,48 +602,48 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [3
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 83.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
 
 <img/saferschema.png, id=19, 272.80728pt x 290.03722pt>
 File: img/saferschema.png Graphic file (type png)
 
 <use img/saferschema.png>
-Package pdftex.def Info: img/saferschema.png used on input line 122.
+Package pdftex.def Info: img/saferschema.png used on input line 124.
 (pdftex.def)             Requested size: 469.47046pt x 499.16406pt.
  [4
 
-] [5 <./img/saferschema.png>] [6]
+] [5 <./img/saferschema.png>] [6] [7]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
-) [7
+) [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 205--208
+Underfull \hbox (badness 10000) in paragraph at lines 230--233
 
  []
 
-[8] [9
+[9] [10
 
-] [10
+] [11
 
 ] (./template.aux) ) 
 Here is how much of TeX's memory you used:
- 5897 strings out of 493304
- 76192 string characters out of 6139871
- 172988 words of memory out of 5000000
- 9229 multiletter control sequences out of 15000+600000
+ 5996 strings out of 493304
+ 77493 string characters out of 6139871
+ 174798 words of memory out of 5000000
+ 9319 multiletter control sequences out of 15000+600000
  22404 words of font info for 51 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,49p,418b,1212s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,49p,418b,1212s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
@@ -636,10 +658,10 @@ f/fonts/type1/public/cm-super/sfcc2488.pfb></usr/share/texmf/fonts/type1/public
 fb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sfti1200.pfb>
-Output written on template.pdf (10 pages, 331379 bytes).
+Output written on template.pdf (11 pages, 333662 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

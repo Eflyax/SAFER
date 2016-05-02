@@ -11,6 +11,7 @@
 \usepackage{indentfirst}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{multirow,tabularx}
 
 %Pravidlo pro řádkování
 \renewcommand{\baselinestretch}{1.5}
@@ -77,6 +78,7 @@
 Šifra používá \emph{r} identických šifrovacích kol (rounds). Tato šifra standardně používá 6 rounds, počet může být volitelný. Maximum je však 10. Pro zadaný 64 bitový klíč se vytvoří 2r + 1 podklíčů, které mají také 64 bitů. 2 klíče se vždy použijí v jednom šifrovacím kole (2r) a poslední klíč (+1) se použije pro výstupní transformaci.   
 Uživatelem zvolený vstup a klíč je dlouhý 8 bajtů (64 bitů). 
 
+
 {\subsection{Šifrování}}
 
 \begin{itemize}  
@@ -85,7 +87,7 @@ Uživatelem zvolený vstup a klíč je dlouhý 8 bajtů (64 bitů).
 \end{itemize}
 
 \begin{enumerate}
-\item Výpočet podklíčů $K_{1}$, ... , $K_{8}$ , viz kapitola xyz
+\item Výpočet podklíčů $K_{1}$, ... , $K_{8}$ , viz kapitola 2.2 
 \item ($X_{1}$,$X_{2}$,...$X_{8}$) 
 $\leftarrow$
 ($m_{1}$...$m_{8}$, $m_{9}$...$m_{16}$,...$m_{57}$...$m_{64}$).
@@ -141,18 +143,41 @@ Pro \emph{j} = 2,3,6,7: $Y_{j}$ $\leftarrow$ $X_{j}$ $\boxplus$ $K_{2r+1}$|j|
 \end{enumerate}
 \end{enumerate}
 
+
+Pro vstupní klíč \emph{12345678} s 6 iteracemi bude tabulka podklíčů vypadat takto:
+
+\begin{table}[h!]
+\centering
+\caption{Vizualizace přiřazení podklíčů k iteracím}
+    \begin{tabular}{ | l | l | l | l | l | l | l | l | l |}
+    \hline
+    
+hmm & \multicolumn{8}{c|}{Použité podklíče}   \\   \hline  
+\multirow{2}{*}{1. iterace} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8  \\ 
+ &86 &171 &107 &70 &174 &136 &205 &142 \\ \hline 
+\multirow{2}{*}{2. iterace}  &73 &63 &165 &151 &242 &55 &8 &134 \\  
+ &193 &200 &175 &193 &24 &16 &201 &57 \\ \hline 
+\multirow{2}{*}{3. iterace}  &73 &202 &136 &252 &164 &213 &12 &187 \\  
+ &202 &234 &152 &218 &15 &121 &155 &118 \\ \hline 
+\multirow{2}{*}{4. iterace} &134 &248 &29 &81 &227 &150 &203 &220 \\ 
+ &107 &201 &246 &233 &195 &31 &43 &244 \\ \hline 
+\multirow{2}{*}{5. iterace} &163 &111 &166 &106 &97 &90 &148 &32 \\ 
+ &177 &148 &235 &74 &225 &214 &139 &196 \\ \hline
+\multirow{2}{*}{6. iterace}  &101 &85 &224 &107 &98 &120 &180 &114 \\ 
+ &13 &9 &35 &74 &238 &87 &33 &67 \\ \hline 
+Transformace &15 &153 &61 &84 &192 &14 &7 &65 \\ \hline     
+\end{tabular}
+\end{table}
+
+
 \subsection{Dešifrování}
 Proces dešifrování používá pro zadaný klíč K stejné hledání podklíčů, jako při šifrování. Proces začíná s se vstupní transformací s klíčem $K_{2r+1}$ k výstupní transformaci. Veškeré modulární součty jsou nahrazeny modulárním odečítáním.
 Funkce \emph{f} v lineárních vrstvách jsou nahrazeny jejich inverzními funkcemi: $\emph{f}_{inv}$(L,R) = (L - R, 2R - L) s odečítáním mod 256 v tříkrokových sekvencích.
 
-
-
 {\section{Dokumentace}}
-
 
 {\subsection{Programátorská dokumentace}}
 \begin{itemize}
-
 
 \item \textbf{void SAFER$\_$K$\_$64$\_$encryption( . . . )} \\
 Provádí šifrování vstupního textu se zadaným klíčem. 
@@ -190,7 +215,7 @@ Provádí deširování dle zadaného vstupu a klíče.
 \item \textbf{int check$\_$user$\_$inputs( . . . )} \\
 Validuje vstupy zadané od uživatele (vstupní text a šifrovací/dešifrovací klíč).
 
-\item \textbf{int main(int argc, char *argv[]) }
+\item \textbf{int main(int argc, char *argv[]) }\\
 Hlavní procedura programu. Volá podprogram pro validaci vstupů, dle zadaných vstupů provede šifrování/dešifrování. Veškeré výstupy programu se vypisují do konzole.
 
 \end{itemize}

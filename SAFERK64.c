@@ -35,6 +35,8 @@ void SAFER_K_64_key_schedule(short *key, short *S, short *S_inv, uchar **K) {
 		R[i2 + 2] = (uchar) (key[i] & 255);
 	}
 
+
+
 	for (i = 2; i <= 2 * ROUNDS + 1; i++) {
 		for (j = 1; j <= 8; j++) {
 			t = R[j];
@@ -43,6 +45,16 @@ void SAFER_K_64_key_schedule(short *key, short *S, short *S_inv, uchar **K) {
 		for (j = 1; j <= 8; j++)
 			K[i][j] = (uchar) ((R[j] + B[i][j]) % 256);
 	}
+
+
+	/*int zblk;
+	for (zblk = 1; zblk <= 2 * ROUNDS + 1; zblk++) {
+		for (i = 1; i <= 8; i++) {
+			printf("%d &", K[zblk][i]);
+		}
+		printf("\\\\ \\hline \n");
+	}
+*/
 }
 
 void f(uchar x, uchar y, uchar *X, uchar *Y) {
